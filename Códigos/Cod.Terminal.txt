@@ -1,0 +1,67 @@
+=======Código final: Sensor de Temperatura DHT11 com saída no LCD 16x2=====================
+===========LEIA TAMIRIS MAINHA TATA DA RIMA==============
+
+mamãe, seguinte:
+primeiramente você vai adicionar essa biblioteca na IDE:
+
+//arquivo .zip
+https://github.com/beegee-tokyo/DHTesp
+
+ou
+
+//instalação direta
+Adicionar na própria IDE Arduino pesquisando por: DHT sensor library for ESPx 
+
+
+Obs: Não se esqueça de:
+     - Colocar na placa do ESP8266;
+     - Adicionar a biblioteca acima;
+     - Verificar o COM(porta que o ESP está conectado);
+     - O monitor serial(caminho dentro da IDE: Ferramentas > Monitor Serial > COM?)
+          
+Depois que estiver tudo bonitinho, você pode apenas copiar
+esse código aqui embaixo:
+
+==============CODE=====================================================
+
+//Código de sensor de temperatura DHT no Terminal
+
+// Inclua as seguintes bibliotecas:
+//DHT:  sensor de temperatura e umidade para ESP
+#include <DHTesp.h>
+
+// Instância de objeto. O Objeto é o sensor DHT
+DHTesp dht;
+
+// Declaração de variáveis
+float t; // Temperatura
+float h; // Umidade
+
+void setup() 
+{
+  //Inicialização do monitor serial
+  Serial.begin(115200);
+
+  // Inicializando o sensor DHT
+  // objeto.função_iniciar(Pino de entrada, DHTesp::versão_sensor);
+  dht.setup(4, DHTesp::DHT22);
+}
+
+void loop() 
+{
+  // Atribuindo a leitura do sensor como valor das variaveis
+  h = dht.getHumidity();
+  t = dht.getTemperature();
+
+  // Funções de exibição dos valores
+  Serial.println("Temp: " + (String)t + " *C");
+
+  // Funções de exibição dos valores
+  Serial.println("Umid: " + (String)h + " %");
+
+  // Pula uma linha por organização
+  Serial.println("");
+  
+  //tempo de espera para execução da próxima leitura
+  delay(10000);
+}

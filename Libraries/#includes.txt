@@ -1,0 +1,8 @@
+Lista de todos os includes que podemos vir a usar:
+Obs: Todas as bibliotecas estão no pendrive
+
+//LCD com I2C(caso especifico)
+#include <LiquidCrystal_I2C.h>
+
+//sensor DHT para Esp(todos os casos)
+#include <DHTesp.h>

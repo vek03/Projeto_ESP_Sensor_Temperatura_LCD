@@ -1,0 +1,5 @@
+Esp32 link: https://dl.espressif.com/dl/package_esp32_index.json
+
+8266  link: http://arduino.esp8266.com/stable/package_esp8266com_index.json
+
+link projeto: https://randomnerdtutorials.com/esp32-esp8266-i2c-lcd-arduino-ide/
